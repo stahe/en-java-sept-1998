@@ -1130,16 +1130,13 @@
 <p>Let’s analyze a few lines from the previous <em>IDL</em> interface:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>module echo
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>is equivalent to the Java **echo package**. Compiling the interface will generate the *Java* package c.a.d, a directory containing Java classes.
-</code></pre></div>
+<p>is equivalent to the Java <strong>echo package</strong>. Compiling the interface will generate the <em>Java</em> package c.a.d, a directory containing Java classes.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>interface iSrvEcho
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>is equivalent to the Java **interface iSrvEcho**. This will generate a Java interface.
-</code></pre></div>
+<p>is equivalent to the Java <strong>interface iSrvEcho</strong>. This will generate a Java interface.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>string echo(in string msg)
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>is equivalent to the Java statement **String echo(String msg)**. The types in the IDL language do not correspond exactly to those in the Java language. The correspondences are provided later in this chapter. In the IDL language, a function’s parameters can be input (**in**), output (**out**), or input-output (**inout**) parameters. Here, the *echo* method receives an input parameter *msg,* which is a string, and returns a string as the result.
-</code></pre></div>
+<p>is equivalent to the Java statement <strong>String echo(String msg)</strong>. The types in the IDL language do not correspond exactly to those in the Java language. The correspondences are provided later in this chapter. In the IDL language, a function’s parameters can be input (<strong>in</strong>), output (<strong>out</strong>), or input-output (<strong>inout</strong>) parameters. Here, the <em>echo</em> method receives an input parameter <em>msg,</em> which is a string, and returns a string as the result.</p>
 <p>The previous interface is that of our echo server. Recall that a remote interface describes the server object’s methods accessible to clients. Here, only the <em>echo</em> method will be available to clients.</p>
 <p><span id="toc10974771" name="toc10974771" class="odt-bookmark-anchor"></span>
 <span id="toc12362994" name="toc12362994" class="odt-bookmark-anchor"></span>
@@ -1652,22 +1649,18 @@
 <p><strong>executeSQL</strong>: the client requests the execution of a query SQL on the database to which it is connected. It specifies the character that should separate the fields in the results returned to it. The server returns an array of strings:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>    100 n
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>for a database update query, where n is the number of rows updated
-</code></pre></div>
+<p>for a database update query, where n is the number of rows updated</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>    500 msg d’erreur
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>    if the request generated an error
-</code></pre></div>
+<p>if the request generated an error</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>    501 Pas de résultats
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>    if the query returned no results
-</code></pre></div>
+<p>if the query returned no results</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>    101 ligne1
 <a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>    101 ligne2
 <a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>    101 ...
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>if the query returned results. The rows returned by the server are the query results.
-</code></pre></div>
+<p>if the query returned results. The rows returned by the server are the query results.</p>
 <p><strong>Close:</strong> the client closes its connection to the remote database. The server returns a string indicating the result of this closure:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>    200 Base fermée
 <a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>    500 Erreur lors de la fermeture de la base (msg d’erreur)

@@ -1887,39 +1887,27 @@
 <h3 id="818-the-application-layer">8.1.8. <span style="color: #4f81bd">The Application Layer</span></h3>
 <p>Above the UDP and TCP protocols, there are various standard protocols:</p>
 <p><strong><mark style="background-color: #ffff00">TELNET</mark></strong></p>
-<div class="highlight"><pre><span></span><code>This protocol allows a user on machine A on the network to connect to machine B (often called the host machine). TELNET emulates a so-called universal terminal on machine A. The user therefore behaves as if they had a terminal connected to machine B. Telnet is based on the TCP protocol.
-</code></pre></div>
+<p>This protocol allows a user on machine A on the network to connect to machine B (often called the host machine). TELNET emulates a so-called universal terminal on machine A. The user therefore behaves as if they had a terminal connected to machine B. Telnet is based on the TCP protocol.</p>
 <p><strong><mark style="background-color: #ffff00">FTP: (File Transfer Protocol)</mark></strong></p>
-<div class="highlight"><pre><span></span><code>This protocol enables file exchange between two remote machines as well as file operations such as creating directories, for example. It relies on the TCP protocol.
-</code></pre></div>
+<p>This protocol enables file exchange between two remote machines as well as file operations such as creating directories, for example. It relies on the TCP protocol.</p>
 <p><strong><mark style="background-color: #ffff00">TFTP: (Trivial File Transfer Control)</mark></strong></p>
-<div class="highlight"><pre><span></span><code>This protocol is a variant of FTP. It is based on the UDP protocol and is less sophisticated than FTP.
-</code></pre></div>
+<p>This protocol is a variant of FTP. It is based on the UDP protocol and is less sophisticated than FTP.</p>
 <p><strong><mark style="background-color: #ffff00">DNS: (Domain Name System)</mark></strong></p>
-<div class="highlight"><pre><span></span><code>When a user wants to exchange files with a remote machine—such as FTP, for example—they must know that machine’s IP address. For example, to run FTP on the Lagaffe machine at the University of Angers, you would need to launch FTP as follows: FTP 193.49.144.1
-
-This requires a directory mapping machines to IP addresses. In this directory, the machines would likely be designated by symbolic names such as:
-
-machine DPX2/320 at the University of Angers
-
-Sun machine at the University of Angers
-
-It is clear that it would be more convenient to refer to a machine by a name rather than by its address IP. This raises the issue of name uniqueness: there are millions of interconnected machines. One might imagine a centralized body assigning the names. That would undoubtedly be quite cumbersome. Control over names has in fact been distributed across **domains**. Each domain is managed by an organization that is generally very lean and has complete freedom in choosing machine names. Thus, machines in France belong to the **fr** domain, which is managed by Inria in Paris. To further simplify matters, control is distributed even further: domains are created within the **fr** domain. Thus, the University of Angers belongs to the **univ-Angers** domain. The department managing this domain has complete freedom to name the machines on the University of Angers network. For now, this domain has not been subdivided. But in a large university with many networked machines, it could be.
-
-The machine DPX2/320 at the University of Angers has been named *Lagaffe*, while a PC 486DX50 has been named *liny*. How do we refer to these machines from the outside? By specifying the hierarchy of domains to which they belong. Thus, the full name of the machine Lagaffe will be:
-</code></pre></div>
+<p>When a user wants to exchange files with a remote machine—such as FTP, for example—they must know that machine’s IP address. For example, to run FTP on the Lagaffe machine at the University of Angers, you would need to launch FTP as follows: FTP 193.49.144.1</p>
+<p>This requires a directory mapping machines to IP addresses. In this directory, the machines would likely be designated by symbolic names such as:</p>
+<p>machine DPX2/320 at the University of Angers</p>
+<p>Sun machine at the University of Angers</p>
+<p>It is clear that it would be more convenient to refer to a machine by a name rather than by its address IP. This raises the issue of name uniqueness: there are millions of interconnected machines. One might imagine a centralized body assigning the names. That would undoubtedly be quite cumbersome. Control over names has in fact been distributed across <strong>domains</strong>. Each domain is managed by an organization that is generally very lean and has complete freedom in choosing machine names. Thus, machines in France belong to the <strong>fr</strong> domain, which is managed by Inria in Paris. To further simplify matters, control is distributed even further: domains are created within the <strong>fr</strong> domain. Thus, the University of Angers belongs to the <strong>univ-Angers</strong> domain. The department managing this domain has complete freedom to name the machines on the University of Angers network. For now, this domain has not been subdivided. But in a large university with many networked machines, it could be.</p>
+<p>The machine DPX2/320 at the University of Angers has been named <em>Lagaffe</em>, while a PC 486DX50 has been named <em>liny</em>. How do we refer to these machines from the outside? By specifying the hierarchy of domains to which they belong. Thus, the full name of the machine Lagaffe will be:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>        Lagaffe.univ-Angers.fr
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>Within domains, relative names can be used. Thus, within the **fr** domain and outside the **univ-Angers** domain, the machine Lagaffe can be referenced as
-</code></pre></div>
+<p>Within domains, relative names can be used. Thus, within the <strong>fr</strong> domain and outside the <strong>univ-Angers</strong> domain, the machine Lagaffe can be referenced as</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>        Lagaffe.univ-Angers
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>Finally, within the *univ-Angers* domain, it can be referenced simply as
-</code></pre></div>
+<p>Finally, within the <em>univ-Angers</em> domain, it can be referenced simply as</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>        Lagaffe
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>An application can therefore refer to a machine by its name. Ultimately, however, you still need to obtain the machine’s Internet address. How is this done? Suppose that from machine A, you want to communicate with machine B.
-</code></pre></div>
+<p>An application can therefore refer to a machine by its name. Ultimately, however, you still need to obtain the machine’s Internet address. How is this done? Suppose that from machine A, you want to communicate with machine B.</p>
 <ul>
   <li>If machine B belongs to the same domain as machine A, we will likely find its address IP in a file on machine A.
   </li>
@@ -1928,14 +1916,11 @@ The machine DPX2/320 at the University of Angers has been named *Lagaffe*, while
 </ul>
 
 <p><strong><mark style="background-color: #ffff00">XDR: (eXternal Data Representation)</mark></strong></p>
-<div class="highlight"><pre><span></span><code>Created by sun MicroSystems, this protocol specifies a standard, machine-independent data representation.
-</code></pre></div>
+<p>Created by sun MicroSystems, this protocol specifies a standard, machine-independent data representation.</p>
 <p><strong><mark style="background-color: #ffff00">RPC: (Remote Procedure Call)</mark></strong></p>
-<div class="highlight"><pre><span></span><code>Also defined by Sun, this is a transport-layer-independent communication protocol for remote applications. This protocol is important: it relieves the programmer of the need to know the details of the transport layer and makes applications portable. This protocol is based on the XDR protocol
-</code></pre></div>
+<p>Also defined by Sun, this is a transport-layer-independent communication protocol for remote applications. This protocol is important: it relieves the programmer of the need to know the details of the transport layer and makes applications portable. This protocol is based on the XDR protocol</p>
 <p><strong><mark style="background-color: #ffff00">NFS: Network File System</mark></strong></p>
-<div class="highlight"><pre><span></span><code>Also defined by Sun, this protocol allows one machine to &amp;quot;see&amp;quot; the file system of another machine. It is based on the preceding RPC protocol.
-</code></pre></div>
+<p>Also defined by Sun, this protocol allows one machine to &quot;see&quot; the file system of another machine. It is based on the preceding RPC protocol.</p>
 <p><span id="toc8795544" name="toc8795544" class="odt-bookmark-anchor"></span>
 <span id="toc8814293" name="toc8814293" class="odt-bookmark-anchor"></span>
 <span id="toc9054103" name="toc9054103" class="odt-bookmark-anchor"></span>
@@ -4534,44 +4519,34 @@ The machine DPX2/320 at the University of Angers has been named *Lagaffe*, while
 </ol>
 
 <p>The client asks if a compute server is available for it.</p>
-<div class="highlight"><pre><span></span><code>The GRC server then takes the first server found in its list of available servers and returns its name to the client in the following format:
-</code></pre></div>
+<p>The GRC server then takes the first server found in its list of available servers and returns its name to the client in the following format:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-116-1" name="__codelineno-116-1" href="#__codelineno-116-1"></a>        100-nom du serveur
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>Additionally, it adds the server assigned to the client to the list of occupied servers in the following format:
-</code></pre></div>
+<p>Additionally, it adds the server assigned to the client to the list of occupied servers in the following format:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-117-1" name="__codelineno-117-1" href="#__codelineno-117-1"></a>        serveur (IP du client)
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>as shown in the following example, where the server *calcul1.istia.univ-angers.fr* is busy serving the client with the address IP *193.52.43.5*:
-</code></pre></div>
+<p>as shown in the following example, where the server <em>calcul1.istia.univ-angers.fr</em> is busy serving the client with the address IP <em>193.52.43.5</em>:</p>
 <p><img src="images/10000000000001D600000118B0FB44FA.png" width="470" height="280" style="width:12.435cm;height:7.408cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001D600000118B0FB44FA.png" /></p>
-<div class="highlight"><pre><span></span><code>A client cannot send a **getserver** command if a compute server has already been assigned to it. Thus, before responding to the client, the server GRC checks that the client’s address IP is not already present among those recorded in the list of busy servers. If this is the case, the server GRC responds:
-</code></pre></div>
+<p>A client cannot send a <strong>getserver</strong> command if a compute server has already been assigned to it. Thus, before responding to the client, the server GRC checks that the client’s address IP is not already present among those recorded in the list of busy servers. If this is the case, the server GRC responds:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-118-1" name="__codelineno-118-1" href="#__codelineno-118-1"></a>        501-Vous avez actuellement une demande en cours
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>Finally, there is the case where no compute servers are available: the list of free servers is empty. In this case, the server GRC responds:
-</code></pre></div>
+<p>Finally, there is the case where no compute servers are available: the list of free servers is empty. In this case, the server GRC responds:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-119-1" name="__codelineno-119-1" href="#__codelineno-119-1"></a>        502- Il n’y a aucun serveur de calcul disponible
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>In all cases, after responding to the client, the GRC server closes the connection with the client so that it can serve other clients requests.
-</code></pre></div>
+<p>In all cases, after responding to the client, the GRC server closes the connection with the client so that it can serve other clients requests.</p>
 <ol>
   <li>2-finservice
   </li>
 </ol>
 
-<div class="highlight"><pre><span></span><code>The client indicates that it no longer needs the compute server it was using.
-
-The server GRC first verifies that the client is indeed a client it previously served. To do this, it checks whether the client’s address IP is among those listed in the busy server list. If not, the server GRC responds:
-</code></pre></div>
+<p>The client indicates that it no longer needs the compute server it was using. </p>
+<p>The server GRC first verifies that the client is indeed a client it previously served. To do this, it checks whether the client’s address IP is among those listed in the busy server list. If not, the server GRC responds:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-120-1" name="__codelineno-120-1" href="#__codelineno-120-1"></a>        503-Aucun serveur ne vous a été attribué
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>If the client is recognized, the server GRC responds:
-</code></pre></div>
+<p>If the client is recognized, the server GRC responds:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-121-1" name="__codelineno-121-1" href="#__codelineno-121-1"></a>        101-Fin de service acceptée
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>and moves the compute server assigned to this client to the list of available servers. To continue with the previous example, if the client sends the **end-of-service** command, the display on server GRC becomes:
-</code></pre></div>
+<p>and moves the compute server assigned to this client to the list of available servers. To continue with the previous example, if the client sends the <strong>end-of-service</strong> command, the display on server GRC becomes:</p>
 <p><img src="images/10000000000001D6000001189F0E1489.png" width="470" height="280" style="width:12.435cm;height:7.408cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001D6000001189F0E1489.png" /></p>
 <p>After sending the response, regardless of its content, server GRC closes the connection.</p>
 <p><span id="toc10974706" name="toc10974706" class="odt-bookmark-anchor"></span>
@@ -4602,14 +4577,11 @@ The server GRC first verifies that the client is indeed a client it previously s
 
 <p><strong>// comments --------------</strong></p>
 <p><strong>The</strong> <strong><em>telnet</em></strong> <strong>program can call any service using the syntax</strong> </p>
-<div class="highlight"><pre><span></span><code>***telnet*** **machine\_service port\_service**
-</code></pre></div>
+<p><strong><em>telnet</em></strong> <strong>machine_service port_service</strong></p>
 <p><strong>Client/server exchanges are made using text lines ending with the sequence RCLF.</strong></p>
 <p><strong>Responses from the</strong> <strong><em>SMTP</em></strong> <strong>service are in the form:</strong></p>
-<div class="highlight"><pre><span></span><code>**Message-number or**
-
-**Message number**
-</code></pre></div>
+<p><strong>Message-number or</strong></p>
+<p><strong>Message number</strong></p>
 <p><strong>The SMTP server may send multiple response lines. The last line of the response is indicated by a number followed by a space, whereas for the preceding lines of the response, the number is followed by a hyphen -.</strong></p>
 <p><strong>A number greater than or equal to 500 indicates an error message.</strong></p>
 <p><strong>// end of comments</strong></p>
@@ -4630,8 +4602,7 @@ The server GRC first verifies that the client is indeed a client it previously s
 </code></pre></div>
 <p><strong>// comments ---------</strong></p>
 <p><strong>The mail command has the following syntax:</strong></p>
-<div class="highlight"><pre><span></span><code>**mail from: email address of the message sender**
-</code></pre></div>
+<p><strong>mail from: email address of the message sender</strong></p>
 <p><strong>// end of comments</strong></p>
 <p><strong>// response from the</strong> <strong><em>SMTP</em></strong> <strong>server</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-126-1" name="__codelineno-126-1" href="#__codelineno-126-1"></a>250 serge.tahe@istia.univ-angers.fr... Sender ok
@@ -4643,8 +4614,7 @@ The server GRC first verifies that the client is indeed a client it previously s
 </code></pre></div>
 <p><strong>// comments ---------</strong></p>
 <p><strong>The rcpt command has the following syntax:</strong></p>
-<div class="highlight"><pre><span></span><code>**rcpt to: email address of the message recipient**
-</code></pre></div>
+<p><strong>rcpt to: email address of the message recipient</strong></p>
 <p><strong>If the email address is an address on the machine where the</strong> <strong><em>SMTP</em></strong> <strong>server is running, it verifies that it exists; otherwise, it performs no verification. If verification was performed and an error was detected, it will be reported with a number &gt;= 500.</strong></p>
 <p><strong>You can issue as many</strong> <strong><em>rcpt to</em></strong> <strong>commands as you like: this allows you to send a message to multiple people.</strong></p>
 <p><strong>// end of comments</strong></p>
@@ -4655,16 +4625,11 @@ The server GRC first verifies that the client is indeed a client it previously s
 </code></pre></div>
 <p><strong>// comments ---------</strong></p>
 <p><strong>The command data has the following syntax:</strong></p>
-<div class="highlight"><pre><span></span><code>**data**
-
-    **line1**
-
-    **line2**
-
-    **...**
-
-    **.**
-</code></pre></div>
+<p><strong>data</strong></p>
+<p><strong>line1</strong></p>
+<p><strong>line2</strong></p>
+<p><strong>...</strong></p>
+<p><strong>.</strong></p>
 <p><strong>It is followed by the lines of text that make up the message, which must end with a line containing only the character &quot;period&quot;.</strong></p>
 <p><strong>The message is then sent to the recipient specified by the rcpt command.</strong></p>
 <p><strong>// end of comments</strong></p>
@@ -4687,8 +4652,7 @@ The server GRC first verifies that the client is indeed a client it previously s
 <div class="highlight"><pre><span></span><code><a id="__codelineno-132-1" name="__codelineno-132-1" href="#__codelineno-132-1"></a>quit                            // new keyboard command
 </code></pre></div>
 <p><strong>// comments</strong></p>
-<div class="highlight"><pre><span></span><code>**The quit command closes the connection to the** ***SMTP*** **service**
-</code></pre></div>
+<p><strong>The quit command closes the connection to the</strong> <strong><em>SMTP</em></strong> <strong>service</strong></p>
 <p><strong>// end of comments</strong></p>
 <p><strong>// response from the</strong> <strong><em>SMTP</em></strong> <strong>server</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-133-1" name="__codelineno-133-1" href="#__codelineno-133-1"></a>221 Istia.Istia.Univ-Angers.fr closing connection
@@ -4822,29 +4786,35 @@ The server GRC first verifies that the client is indeed a client it previously s
 <p>We propose to create a client TCP capable of communicating with the server POPPASSD running on port 106. This service allows users to change their password on a machine UNIX. The Client/Server communication protocol is as follows:</p>
 <p>1    - Communication occurs via the exchange of messages ending with the sequence RCLF</p>
 <p>2    - The client sends commands to the server</p>
-<div class="highlight"><pre><span></span><code>- The server responds with messages beginning with 3-digit numbers: XXX. If XXX=200, the command was executed successfully; otherwise, an error occurred.
-</code></pre></div>
+<ul>
+<li>The server responds with messages beginning with 3-digit numbers: XXX. If XXX=200, the command was executed successfully; otherwise, an error occurred.</li>
+</ul>
 <p>3    - The sequence of exchanges is as follows:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-137-1" name="__codelineno-137-1" href="#__codelineno-137-1"></a>A    - le client se connecte
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>- The server responds with a welcome message
-</code></pre></div>
+<ul>
+<li>The server responds with a welcome message</li>
+</ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-138-1" name="__codelineno-138-1" href="#__codelineno-138-1"></a>B    - le client envoie USER login
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>- The server responds by requesting the password if the login is accepted; otherwise, it returns an error
-</code></pre></div>
+<ul>
+<li>The server responds by requesting the password if the login is accepted; otherwise, it returns an error</li>
+</ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-139-1" name="__codelineno-139-1" href="#__codelineno-139-1"></a>C    - le client envoie PASS mot_de_passe
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>- The server responds by requesting the new password if the password is accepted; otherwise, it returns an error
-</code></pre></div>
+<ul>
+<li>The server responds by requesting the new password if the password is accepted; otherwise, it returns an error</li>
+</ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-140-1" name="__codelineno-140-1" href="#__codelineno-140-1"></a>D    - le client envoie NEWPASS nouveau_mot_de_passe
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>- The server responds by confirming that the new password has been accepted; otherwise, it returns an error
-</code></pre></div>
+<ul>
+<li>The server responds by confirming that the new password has been accepted; otherwise, it returns an error</li>
+</ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-141-1" name="__codelineno-141-1" href="#__codelineno-141-1"></a>E    - le client envoie la commande QUIT
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>- The server sends an end message and closes the connection
-</code></pre></div>
+<ul>
+<li>The server sends an end message and closes the connection</li>
+</ul>
 <p><span id="toc10974716" name="toc10974716" class="odt-bookmark-anchor"></span>
 <span id="toc459349606" name="toc459349606" class="odt-bookmark-anchor"></span></p>
 <h4 id="8542-the-client-form">8.5.4.2. <span style="color: #4f81bd">The client form</span></h4>

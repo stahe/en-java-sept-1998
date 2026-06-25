@@ -1209,8 +1209,7 @@
 <span id="toc459349311" name="toc459349311" class="odt-bookmark-anchor"></span></p>
 <h4 id="2232-declaration-of-constants">2.2.3.2. <span style="color: #4f81bd">Declaration of Constants</span></h4>
 <p>The syntax for declaring a constant is as follows:</p>
-<div class="highlight"><pre><span></span><code>**&lt;mark style=&quot;background-color: #ffff00&quot;&gt;final &lt;/mark&gt;**&lt;mark style=&quot;background-color: #ffff00&quot;&gt;type name=value; &lt;/mark&gt;         //defines constant name=value
-</code></pre></div>
+<p><strong><mark style="background-color: #ffff00">final </mark></strong><mark style="background-color: #ffff00">type name=value; </mark>         //defines constant name=value</p>
 <p>ex: <em>final float PI=3.141592F</em>;    </p>
 <p><u>Note</u></p>
 <p>Why declare constants? </p>
@@ -1219,15 +1218,13 @@
   </li>
 </ul>
 
-<div class="highlight"><pre><span></span><code>ex: *final float taux\_tva=0.186F*;
-</code></pre></div>
+<p>ex: <em>final float taux_tva=0.186F</em>;</p>
 <ul>
   <li>Modifying the program will be easier if the &quot;constant&quot; needs to be changed. Thus, in the previous case, if the VAT rate changes to 33%, the only modification needed will be to change the statement defining its value:
   </li>
 </ul>
 
-<div class="highlight"><pre><span></span><code>*final float taux\_tva=0.33F*;
-</code></pre></div>
+<p><em>final float taux_tva=0.33F</em>;</p>
 <p>If we had used 0.186 explicitly in the program, we would have had to change many lines of code.</p>
 <p><span id="toc459205608" name="toc459205608" class="odt-bookmark-anchor"></span>
 <span id="toc459205805" name="toc459205805" class="odt-bookmark-anchor"></span>
@@ -1679,10 +1676,8 @@
 <h4 id="2344-relational-operators">2.3.4.4. <span style="color: #4f81bd">Relational operators</span></h4>
 <p>The operators are as follows: <strong><mark style="background-color: #ffff00"> &lt;, &lt;=, ==, !=, &gt;, &gt;=</mark></strong></p>
 <p><u>Order of precedence</u></p>
-<div class="highlight"><pre><span></span><code>       &amp;gt;, &amp;gt;=, &amp;lt;, &amp;lt;=
-
-       ==, !=
-</code></pre></div>
+<p>&gt;, &gt;=, &lt;, &lt;=</p>
+<p>==, !=</p>
 <p>The result of a relational expression is the Boolean value <em><mark style="background-color: #ffff00">false </mark></em>if the expression is <em>false</em>; otherwise, it is true.</p>
 <p>Example:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>      boolean fin;
@@ -1691,8 +1686,7 @@
 </code></pre></div>
 <p><u>Comparison of two characters</u></p>
 <p>Let there be two characters C1 and C2. They can be compared using the operators </p>
-<div class="highlight"><pre><span></span><code>&amp;lt;, &amp;lt;=, ==, !=, &amp;gt;, &amp;gt;=
-</code></pre></div>
+<p>&lt;, &lt;=, ==, !=, &gt;, &gt;=</p>
 <p>. It is their codes ASCII—which are numbers—that are compared. Recall that according to the order ASCII, the following relations hold:</p>
 <p>space &lt; .. &lt; &#x27;0&#x27; &lt; &#x27;1&#x27; &lt; .. &lt; &#x27;9&#x27; &lt; .. &lt; &#x27;A&#x27; &lt; &#x27;B&#x27; &lt; .. &lt; &#x27;Z&#x27; &lt; .. &lt; &#x27;a&#x27; &lt; &#x27;b&#x27; &lt; .. &lt; &#x27;z&#x27;</p>
 <p><u>Comparison of two character strings</u></p>
@@ -1702,8 +1696,7 @@
 <p>This last inequality allows us to conclude that &quot;Cat&quot; &lt; &quot;Dog&quot;.</p>
 <p><img src="images/10000000000002D60000013549DDDF27.png" width="363" height="155" style="width:9.604cm;height:4.089cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002D60000013549DDDF27.png" /></p>
 <p>Consider comparing the strings &quot;Cat&quot; and &quot;Kitten&quot;. They are equal throughout until the string &quot;Cat&quot; is exhausted. In this case, the exhausted string is declared the &quot;smaller&quot; one. We therefore have the relation </p>
-<div class="highlight"><pre><span></span><code>&amp;quot;Cat&amp;quot; &amp;lt; &amp;quot;Kitten&amp;quot;.
-</code></pre></div>
+<p>&quot;Cat&quot; &lt; &quot;Kitten&quot;.</p>
 <p><u>Functions for comparing two strings</u></p>
 <p>We cannot use the relational operators &lt;, &lt;=, ==, !=, &gt;, &gt;= here. We must use methods from the <em>String</em> class:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>String chaine1, chaine2;
@@ -1713,12 +1706,9 @@
 <a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>boolean egal=chaine1.equals(chaine2)
 </code></pre></div>
 <p>In the code above, the variable <em>i</em> will have the value:</p>
-<div class="highlight"><pre><span></span><code>    0: if the two strings are equal
-
-    1: if string 1 &amp;gt; string 2
-
-    -1: if string 1 &amp;lt; string 2
-</code></pre></div>
+<p>0: if the two strings are equal</p>
+<p>1: if string 1 &gt; string 2</p>
+<p>-1: if string 1 &lt; string 2</p>
 <p>The variable <em>equal</em> will have the value <em>true</em> if the two strings are equal.</p>
 <p><span id="toc459205620" name="toc459205620" class="odt-bookmark-anchor"></span>
 <span id="toc459205817" name="toc459205817" class="odt-bookmark-anchor"></span>
@@ -1756,10 +1746,8 @@
 <span id="toc459263831" name="toc459263831" class="odt-bookmark-anchor"></span>
 <span id="toc459349326" name="toc459349326" class="odt-bookmark-anchor"></span></p>
 <h4 id="2347-combination-of-operators">2.3.4.7. <span style="color: #4f81bd">Combination of operators</span></h4>
-<div class="highlight"><pre><span></span><code>   a=a+b can be written as a+=b
-
-   a=a-b can be written as a-=b
-</code></pre></div>
+<p>a=a+b can be written as a+=b</p>
+<p>a=a-b can be written as a-=b</p>
 <p>The same applies to the operators <em>/, %, *, &lt;&lt;, &gt;&gt;, &amp;, |, ^</em></p>
 <p>Thus, <code>*a=a+2;</code><em> can be written as <code>*a+=2;</code></em> </p>
 <p><span id="toc459205623" name="toc459205623" class="odt-bookmark-anchor"></span>
@@ -1781,8 +1769,7 @@
 <p>2: If it is true, the value of the expression is that of <em>expr1</em>. <em>expr2</em> is not evaluated.</p>
 <p>3: If it is false, the opposite occurs: the value of the expression is that of <em>expr2</em>. <em>expr1</em> is not evaluated.</p>
 <p><u>Example</u></p>
-<div class="highlight"><pre><span></span><code>*i=(j&amp;gt;4 ? j+1:j-1);*
-</code></pre></div>
+<p><em>i=(j&gt;4 ? j+1:j-1);</em></p>
 <p>will assign to the variable i:</p>
 <p><em>j+1</em> if <em>j&gt;4</em>, <em>j-1</em> otherwise</p>
 <p>This is the same as writing <em>if(j&gt;4) i=j+1; else i=j-1;</em> but it is more concise.</p>
@@ -1808,10 +1795,8 @@
 <a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>isurj= (float)i/j;   // priority of () over /
 </code></pre></div>
 <p>Here, it is necessary to cast <em>i</em> or <em>j</em> to a floating-point type; otherwise, the division will return an integer quotient rather than a floating-point value.</p>
-<div class="highlight"><pre><span></span><code>     *i* is a value exactly encoded in 2 bytes
-
-     *(float) i* is the same value encoded as an approximate floating-point number over 4 bytes
-</code></pre></div>
+<p><em>i</em> is a value exactly encoded in 2 bytes</p>
+<p><em>(float) i</em> is the same value encoded as an approximate floating-point number over 4 bytes</p>
 <p>There is therefore a transcoding of the value of <em>i</em>. This transcoding occurs only for the duration of a calculation; the variable <em>i</em> always retains its type <em>int</em>.</p>
 <p><span id="toc428596808" name="toc428596808" class="odt-bookmark-anchor"></span>
 <span id="toc459205123" name="toc459205123" class="odt-bookmark-anchor"></span>

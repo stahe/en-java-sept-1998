@@ -955,12 +955,9 @@
 <p><em>DriverManager</em>: Java class containing the list of drivers available to the application</p>
 <p><em>Connection:</em> Java class establishing a link between the application and the database, through which the application will send SQL queries to the database and receive results</p>
 <p><em>URL:</em> name identifying the database. This name is analogous to URL on the Internet. This is why it is part of the URL class. However, the Internet plays no role here. The URL has the following form: </p>
-<div class="highlight"><pre><span></span><code>    **jdbc:nom\_du\_pilote:nom\_de\_la\_source;param=val1;param2=val2**
-
-In our examples, where we will use only ODBC drivers, the driver is called **odbc**. The third part of the URL consists of the source name with any parameters. In our examples, these will be ODBC sources known to the system. Thus, the URL for the *Articles* data source defined previously will be
-
-    **jdbc:odbc:Articles**
-</code></pre></div>
+<p><strong>jdbc:nom_du_pilote:nom_de_la_source;param=val1;param2=val2</strong></p>
+<p>In our examples, where we will use only ODBC drivers, the driver is called <strong>odbc</strong>. The third part of the URL consists of the source name with any parameters. In our examples, these will be ODBC sources known to the system. Thus, the URL for the <em>Articles</em> data source defined previously will be </p>
+<p><strong>jdbc:odbc:Articles</strong></p>
 <p><em>id</em>: User ID (login)</p>
 <p><em>mdp</em>: user password</p>
 <p>In summary, the program connects to a database:</p>
